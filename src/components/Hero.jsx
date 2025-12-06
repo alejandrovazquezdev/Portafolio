@@ -1,44 +1,55 @@
 import React from 'react';
+import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 
 const Hero = () => {
   return (
-    <section className="hero">
-      <div className="hero-content">
-        <div className="hero-text">
-          <h1 className="hero-title">
-            Hola, soy <span className="highlight">{personalInfo.name}</span>
-          </h1>
-          <h2 className="hero-subtitle">{personalInfo.title}</h2>
-          <p className="hero-description">{personalInfo.bio}</p>
+    <section className="section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: 'var(--header-height)' }}>
+      <div className="container">
+        <div style={{ maxWidth: '800px' }}>
+          <p className="mono text-accent" style={{ marginBottom: '1.5rem' }}>Hola, mi nombre es</p>
           
-          <div className="hero-stats">
-            <div className="stat">
-              <span className="stat-number">{personalInfo.publicRepos}</span>
-              <span className="stat-label">Repositorios</span>
-            </div>
-            <div className="stat">
-              <span className="stat-number">{personalInfo.followers}</span>
-              <span className="stat-label">Seguidores</span>
-            </div>
-          </div>
+          <h1 style={{ 
+            fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', 
+            fontWeight: 800, 
+            color: 'var(--text-primary)',
+            lineHeight: 1.1,
+            marginBottom: '1rem'
+          }}>
+            {personalInfo.name}.
+          </h1>
+          
+          <h2 style={{ 
+            fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
+            fontWeight: 700, 
+            color: 'var(--text-secondary)',
+            lineHeight: 1.1,
+            marginBottom: '2rem'
+          }}>
+            Construyo soluciones backend escalables.
+          </h2>
+          
+          <p style={{ 
+            fontSize: '1.1rem', 
+            color: 'var(--text-secondary)', 
+            maxWidth: '600px', 
+            marginBottom: '3rem',
+            lineHeight: 1.8
+          }}>
+            {personalInfo.bio}
+          </p>
 
-          <div className="hero-buttons">
-            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-              Ver GitHub
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <a href="#projects" className="btn btn-primary">
+              Ver Proyectos <ArrowRight size={18} />
             </a>
-            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-              LinkedIn
+            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+              <Github size={18} /> GitHub
+            </a>
+            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+              <Linkedin size={18} /> LinkedIn
             </a>
           </div>
-        </div>
-
-        <div className="hero-image">
-          <img 
-            src={personalInfo.avatar} 
-            alt={personalInfo.name}
-            className="avatar"
-          />
         </div>
       </div>
     </section>

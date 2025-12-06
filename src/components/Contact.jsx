@@ -1,70 +1,25 @@
 import React from 'react';
 import { personalInfo } from '../data/portfolio';
+import { Mail } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="section contact-section">
-      <div className="container">
-        <h2 className="section-title">Contacto</h2>
-        <p className="section-subtitle">
-          ¿Tienes un proyecto en mente? ¡Hablemos!
+    <section id="contact" className="section" style={{ textAlign: 'center', paddingBottom: '8rem' }}>
+      <div className="container" style={{ maxWidth: '600px' }}>
+        <p className="mono text-accent" style={{ marginBottom: '1rem' }}>03. ¿Qué sigue?</p>
+        <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Contáctame</h2>
+        <p style={{ 
+          color: 'var(--text-secondary)', 
+          fontSize: '1.1rem', 
+          marginBottom: '3rem',
+          lineHeight: 1.8
+        }}>
+          Actualmente estoy abierto a nuevas oportunidades. Ya sea que tengas una pregunta o simplemente quieras saludar, haré todo lo posible por responderte.
         </p>
-
-        <div className="contact-grid">
-          <div className="contact-info">
-            <div className="contact-item">
-              <div className="contact-icon">📧</div>
-              <div className="contact-details">
-                <h3>Email</h3>
-                <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
-              </div>
-            </div>
-
-            <div className="contact-item">
-              <div className="contact-icon">💼</div>
-              <div className="contact-details">
-                <h3>LinkedIn</h3>
-                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">
-                  {personalInfo.linkedin.replace('https://', '')}
-                </a>
-              </div>
-            </div>
-
-            <div className="contact-item">
-              <div className="contact-icon">🐙</div>
-              <div className="contact-details">
-                <h3>GitHub</h3>
-                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
-                  @alejandrovazquezdev
-                </a>
-              </div>
-            </div>
-
-            <div className="contact-item">
-              <div className="contact-icon">📍</div>
-              <div className="contact-details">
-                <h3>Ubicación</h3>
-                <p>{personalInfo.location}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="contact-cta">
-            <div className="cta-card">
-              <h3>¿Interesado en colaborar?</h3>
-              <p>
-                Siempre estoy abierto a discutir nuevos proyectos, 
-                ideas creativas o oportunidades para ser parte de tus visiones.
-              </p>
-              <a 
-                href={`mailto:${personalInfo.email}?subject=Oportunidad de Colaboración`}
-                className="btn btn-primary"
-              >
-                Enviar Mensaje
-              </a>
-            </div>
-          </div>
-        </div>
+        
+        <a href={`mailto:${personalInfo.email}`} className="btn btn-outline" style={{ padding: '1rem 2rem', fontSize: '1.1rem' }}>
+          <Mail size={20} /> Enviar Correo
+        </a>
       </div>
     </section>
   );

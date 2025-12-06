@@ -1,35 +1,27 @@
 import React from 'react';
 import { personalInfo } from '../data/portfolio';
+import { Github, Linkedin } from 'lucide-react';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="footer">
+    <footer style={{ 
+      padding: '2rem 0', 
+      textAlign: 'center', 
+      fontSize: '0.9rem',
+      color: 'var(--text-secondary)'
+    }}>
       <div className="container">
-        <div className="footer-content">
-          <div className="footer-info">
-            <h3>{personalInfo.name}</h3>
-            <p>{personalInfo.title}</p>
-          </div>
-
-          <div className="footer-links">
-            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              GitHub
-            </a>
-            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              LinkedIn
-            </a>
-            <a href={`mailto:${personalInfo.email}`} aria-label="Email">
-              Email
-            </a>
-          </div>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginBottom: '1.5rem' }}>
+          <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent">
+            <Github size={20} />
+          </a>
+          <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent">
+            <Linkedin size={20} />
+          </a>
         </div>
-
-        <div className="footer-bottom">
-          <p>© {currentYear} {personalInfo.name}. Todos los derechos reservados.</p>
-          <p>Hecho con React + Vite</p>
-        </div>
+        <p className="mono">
+          Diseñado & Construido por {personalInfo.name}
+        </p>
       </div>
     </footer>
   );

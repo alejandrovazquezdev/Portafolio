@@ -1,84 +1,71 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { featuredProjects } from '../data/portfolio';
+import { Github, ExternalLink, Folder } from 'lucide-react';
 
 const Projects = () => {
-  const [filter, setFilter] = useState('all');
-  
-  const languages = ['all', ...new Set(featuredProjects.map(p => p.language).filter(Boolean))];
-  
-  const filteredProjects = filter === 'all' 
-    ? featuredProjects 
-    : featuredProjects.filter(p => p.language === filter);
-
   return (
-    <section id="projects" className="section projects-section">
+    <section id="projects" className="section">
       <div className="container">
-        <h2 className="section-title">Proyectos Destacados</h2>
-        <p className="section-subtitle">
-          Una selección de mis proyectos más relevantes en GitHub
-        </p>
-
-        {/* Filtros */}
-        <div className="project-filters">
-          {languages.map(lang => (
-            <button
-              key={lang}
-              className={`filter-btn ${filter === lang ? 'active' : ''}`}
-              onClick={() => setFilter(lang)}
+        <h2 className="section-title"><span className="mono text-accent">02.</span> Proyectos Destacados</h2>
+        
+        <div className="grid grid-2">
+          {featuredProjects.map((project) => (
+            <div 
+              key={project.id}
+              style={{
+                backgroundColor: 'var(--bg-secondary)',
+                padding: '2rem',
+                borderRadius: '8px',
+                border: '1px solid var(--border-color)',
+                display: 'flex',
+                flexDirection: 'column',
+                height: '100%'
+              }}
             >
-              {lang === 'all' ? 'Todos' : lang}
-            </button>
-          ))}
-        </div>
-
-        {/* Grid de Proyectos */}
-        <div className="projects-grid">
-          {filteredProjects.map((project) => (
-            <div key={project.id} className="project-card">
-              <div className="project-header">
-                <h3 className="project-name">{project.name}</h3>
-                {project.language && (
-                  <span className="project-language">{project.language}</span>
-                )}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+                <Folder size={40} className="text-accent" />
+                <div style={{ display: 'flex', gap: '1rem' }}>
+                  {project.githubUrl && (
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>
+                      <Github size={20} />
+                    </a>
+                  )}
+                  {project.liveUrl && (
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>
+                      <ExternalLink size={20} />
+                    </a>
+                  )}
+                </div>
               </div>
-              
-              <p className="project-description">{project.description}</p>
-              
-              {project.topics && project.topics.length > 0 && (
-                <div className="project-topics">
-                  {project.topics.map((topic, index) => (
-                    <span key={index} className="topic-tag">#{topic}</span>
-                  ))}
-                </div>
-              )}
 
-              <div className="project-footer">
-                <div className="project-stats">
-                  <span title="Stars">⭐ {project.stars}</span>
-                  <span title="Forks">🔱 {project.forks}</span>
-                </div>
-                <a 
-                  href={project.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  Ver Proyecto →
+              <h3 style={{ marginBottom: '1rem', fontSize: '1.5rem' }}>
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)' }}>
+                  {project.name}
                 </a>
-              </div>
+              </h3>
+
+              <p style={{ 
+                color: 'var(--text-secondary)', 
+                marginBottom: '2rem', 
+                flex: 1,
+                fontSize: '0.95rem'
+              }}>
+                {project.description}
+              </p>
+
+              <ul className="mono" style={{ 
+                display: 'flex', 
+                flexWrap: 'wrap', 
+                gap: '1rem', 
+                fontSize: '0.8rem',
+                color: 'var(--text-secondary)'
+              }}>
+                {project.tech.map((tech, i) => (
+                  <li key={i}>{tech}</li>
+                ))}
+              </ul>
             </div>
           ))}
-        </div>
-
-        <div className="view-more">
-          <a 
-            href="https://github.com/alejandrovazquezdev?tab=repositories" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="btn btn-outline"
-          >
-            Ver Todos los Repositorios en GitHub
-          </a>
         </div>
       </div>
     </section>
