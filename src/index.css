@@ -203,6 +203,18 @@ button {
   border-color: rgba(236, 72, 153, 0.5);
 }
 
+/* Profile Image Animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   .section {
@@ -210,5 +222,18 @@ button {
   }
   .container {
     padding: 0 1.5rem;
+  }
+  
+  /* Responsive Hero Layout */
+  .container > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    text-align: center;
+  }
+  
+  .container > div[style*="grid-template-columns"] > div:last-child {
+    margin: 0 auto;
+    width: 200px !important;
+    height: 200px !important;
   }
 }
