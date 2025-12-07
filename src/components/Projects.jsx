@@ -1,71 +1,111 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { featuredProjects } from '../data/portfolio';
-import { Github, ExternalLink, Folder } from 'lucide-react';
+import { Github, ArrowUpRight } from 'lucide-react';
 
 const Projects = () => {
+  const [showAll, setShowAll] = useState(false);
+  const displayedProjects = showAll ? featuredProjects : featuredProjects.filter(p => p.featured);
+
   return (
     <section id="projects" className="section">
       <div className="container">
-        <h2 className="section-title"><span className="mono text-accent">02.</span> Proyectos Destacados</h2>
+        <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
+          <h2 className="section-title">Proyectos Seleccionados</h2>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
+            Una colección de proyectos que demuestran mi experiencia en desarrollo backend, arquitectura de sistemas y aplicaciones multiplataforma.
+          </p>
+        </div>
         
         <div className="grid grid-2">
-          {featuredProjects.map((project) => (
+          {displayedProjects.map((project) => (
             <div 
               key={project.id}
+              className="card"
               style={{
-                backgroundColor: 'var(--bg-secondary)',
-                padding: '2rem',
-                borderRadius: '8px',
-                border: '1px solid var(--border-color)',
                 display: 'flex',
                 flexDirection: 'column',
-                height: '100%'
+                justifyContent: 'space-between',
+                height: '100%',
+                position: 'relative',
+                overflow: 'hidden'
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-                <Folder size={40} className="text-accent" />
-                <div style={{ display: 'flex', gap: '1rem' }}>
-                  {project.githubUrl && (
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>
-                      <Github size={20} />
-                    </a>
-                  )}
-                  {project.liveUrl && (
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>
-                      <ExternalLink size={20} />
-                    </a>
-                  )}
+              <div>
+                <div style={{ 
+                  display: 'flex', 
+                  justifyContent: 'space-between', 
+                  alignItems: 'flex-start', 
+                  marginBottom: '1.5rem' 
+                }}>
+                  <div className="mono" style={{ 
+                    fontSize: '0.8rem', 
+                    color: 'var(--text-accent)',
+                    border: '1px solid rgba(59, 130, 246, 0.2)',
+                    padding: '0.25rem 0.75rem',
+                    borderRadius: '100px'
+                  }}>
+                    {project.tech[0]}
+                  </div>
+                  
+                  <div style={{ display: 'flex', gap: '0.75rem' }}>
+                    {project.githubUrl && (
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-white">
+                        <Github size={20} />
+                      </a>
+                    )}
+                    {project.liveUrl && (
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-white">
+                        <ArrowUpRight size={20} />
+                      </a>
+                    )}
+                  </div>
                 </div>
+
+                <h3 style={{ fontSize: '1.75rem', marginBottom: '1rem' }}>
+                  {project.name}
+                </h3>
+
+                <p style={{ 
+                  color: 'var(--text-secondary)', 
+                  marginBottom: '2rem',
+                  fontSize: '1rem',
+                  lineHeight: '1.6'
+                }}>
+                  {project.description}
+                </p>
               </div>
 
-              <h3 style={{ marginBottom: '1rem', fontSize: '1.5rem' }}>
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)' }}>
-                  {project.name}
-                </a>
-              </h3>
-
-              <p style={{ 
-                color: 'var(--text-secondary)', 
-                marginBottom: '2rem', 
-                flex: 1,
-                fontSize: '0.95rem'
-              }}>
-                {project.description}
-              </p>
-
-              <ul className="mono" style={{ 
+              <div style={{ 
                 display: 'flex', 
                 flexWrap: 'wrap', 
-                gap: '1rem', 
-                fontSize: '0.8rem',
-                color: 'var(--text-secondary)'
+                gap: '0.75rem',
+                marginTop: 'auto'
               }}>
-                {project.tech.map((tech, i) => (
-                  <li key={i}>{tech}</li>
+                {project.tech.slice(1).map((tech, i) => (
+                  <span key={i} className="mono" style={{ 
+                    fontSize: '0.8rem', 
+                    color: 'var(--text-secondary)' 
+                  }}>
+                    #{tech}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* Show More/Less Button */}
+        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+          <button 
+            onClick={() => setShowAll(!showAll)}
+            className="btn btn-secondary"
+            style={{ 
+              cursor: 'pointer',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            {showAll ? 'Mostrar Menos' : `Ver Todos los Proyectos (${featuredProjects.length})`}
+          </button>
         </div>
       </div>
     </section>
