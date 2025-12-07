@@ -98,13 +98,16 @@ const Projects = () => {
         <div style={{ textAlign: 'center', marginTop: '3rem' }}>
           <button 
             onClick={() => setShowAll(!showAll)}
-            className="btn btn-secondary"
+            className="btn btn-primary"
             style={{ 
               cursor: 'pointer',
-              transition: 'all 0.3s ease'
+              transition: 'all 0.3s ease',
+              fontSize: '1rem',
+              padding: '1rem 2rem',
+              fontWeight: '600'
             }}
           >
-            {showAll ? 'Mostrar Menos' : `Ver Todos los Proyectos (${featuredProjects.length})`}
+            {showAll ? '← Mostrar Menos Proyectos' : `Ver Todos los Proyectos (${featuredProjects.length}) →`}
           </button>
         </div>
       </div>

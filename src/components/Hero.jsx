@@ -53,7 +53,7 @@ const Hero = () => {
 
         <h1 className="display-text" style={{ marginBottom: '1.5rem', maxWidth: '900px' }}>
           Ingeniería de software <br />
-          <span style={{ color: 'var(--text-secondary)' }}>con enfoque en escalabilidad.</span>
+          <span style={{ color: 'var(--text-secondary)' }}>DevOps, automatización y sistemas.</span>
         </h1>
         
         <p style={{ 
@@ -63,8 +63,8 @@ const Hero = () => {
           marginBottom: '3rem',
           lineHeight: 1.6
         }}>
-          Soy {personalInfo.name}. Especialista en backend y arquitectura de sistemas. 
-          Transformo problemas complejos en código limpio y eficiente.
+          Soy {personalInfo.name}. Apasionado por DevOps, automatización y entusiasta de los sistemas operativos. 
+          Transformo procesos complejos en soluciones automatizadas y eficientes.
         </p>
 
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>

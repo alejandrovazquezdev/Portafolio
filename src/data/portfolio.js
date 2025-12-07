@@ -3,7 +3,7 @@ export const personalInfo = {
   name: "Alejandro Isaac Vazquez Lopez",
   title: "Ingeniero en Sistemas Computacionales",
   role: "Backend & Software Engineer",
-  bio: "Ingeniero de software enfocado en la construcción de sistemas escalables y arquitectura backend. Especializado en Python y el ecosistema JavaScript, con experiencia en desarrollo de aplicaciones multiplataforma y optimización de bases de datos.",
+  bio: "Ingeniero de software apasionado por DevOps, automatización y sistemas operativos. Especializado en Python y el ecosistema JavaScript, con experiencia en desarrollo de aplicaciones multiplataforma y optimización de bases de datos.",
   email: "alejandroisaacvazquezlopez@gmail.com",
   github: "https://github.com/alejandrovazquezdev",
   linkedin: "https://www.linkedin.com/in/alejandro-vazquez-dev",
@@ -17,7 +17,7 @@ export const skills = [
   },
   {
     category: "Frontend & Mobile",
-    items: ["React", "JavaScript (ES6+)", "Flutter", "Dart", "HTML5/CSS3"]
+    items: ["JavaScript (ES6+)", "Flutter", "Dart", "HTML5/CSS3"]
   },
   {
     category: "Database & Infrastructure",
@@ -48,13 +48,21 @@ export const featuredProjects = [
   {
     id: 2,
     name: "Aplicación Digital Instituto Iztapalapa",
-    description: "Aplicación móvil multiplataforma (Flutter) para aspirantes al Instituto Tecnológico de Iztapalapa (ITIZ). Centraliza el proceso de nuevo ingreso a través de un test vocacional, registro de datos seguro y cálculo de rutas hacia el campus para facilitar la orientación y logística de los nuevos estudiantes.",
-    tech: ["Flutter", "Dart", "JavaScript", "Firebase", "Google Maps API"],
+    description: "Aplicación móvil multiplataforma desarrollada para el Instituto Tecnológico de Iztapalapa. Sistema integral para gestión del proceso de nuevo ingreso estudiantil.",
+    tech: ["Flutter", "Dart", "Mobile Development"],
     githubUrl: "https://github.com/alejandrovazquezdev/aplicacion-digital-instituto-iztapalapa",
     featured: true
   },
   {
     id: 3,
+    name: "Dreamhack",
+    description: "Proyecto ganador del hackathon de Interledger. Implementación de soluciones de pago utilizando el protocolo Interledger y Web Monetization para crear experiencias de pago innovadoras y descentralizadas.",
+    tech: ["Python", "Interledger Protocol", "Web Monetization", "API Integration"],
+    githubUrl: "https://github.com/alejandrovazquezdev/Dreamhack",
+    featured: true
+  },
+  {
+    id: 4,
     name: "Flask Layered Modular Template",
     description: "Template profesional de Flask con arquitectura en capas y estructura modular. Implementa mejores prácticas de desarrollo backend con separación de responsabilidades, facilitando el escalamiento y mantenimiento de aplicaciones web empresariales.",
     tech: ["Python", "Flask", "SQLAlchemy", "Blueprint Pattern", "REST API"],
@@ -62,7 +70,7 @@ export const featuredProjects = [
     featured: true
   },
   {
-    id: 4,
+    id: 5,
     name: "Dotfiles Anywhere",
     description: "Sistema de gestión de configuraciones (dotfiles) multiplataforma compatible con Debian, macOS y Windows. Automatiza la sincronización y respaldo de configuraciones de desarrollo para mantener un entorno de trabajo consistente en diferentes sistemas operativos.",
     tech: ["Lua", "Shell Script", "Neovim", "Terminal Config", "Cross-platform"],
@@ -70,23 +78,23 @@ export const featuredProjects = [
     featured: true
   },
   {
-    id: 5,
-    name: "Next.js Boilerplate",
-    description: "Boilerplate profesional de Next.js con TypeScript, configurado con las mejores prácticas de desarrollo, estructura escalable, sistema de componentes optimizado y configuración lista para producción.",
-    tech: ["Next.js", "TypeScript", "React", "CSS Modules", "SEO Optimization"],
-    githubUrl: "https://github.com/alejandrovazquezdev/nextjs-boilerplate",
-    featured: true
-  },
-  {
     id: 6,
     name: "TypeInFlow",
-    description: "Herramienta de desarrollo enfocada en mejorar la productividad del flujo de trabajo con TypeScript. Incluye utilidades, helpers y patrones de diseño optimizados para desarrollo ágil.",
-    tech: ["TypeScript", "Node.js", "Development Tools"],
+    description: "Herramienta de desarrollo enfocada en mejorar la productividad del flujo de trabajo con TypeScript. Incluye utilidades, helpers y patrones de diseño optimizados para desarrollo ágil y tipado seguro.",
+    tech: ["TypeScript", "Node.js", "Development Tools", "CLI"],
     githubUrl: "https://github.com/alejandrovazquezdev/TypeInFlow",
     featured: false
   },
   {
     id: 7,
+    name: "CuotaFlow",
+    description: "Sistema de gestión de cuotas y pagos diseñado para facilitar el control financiero. Permite administrar cobros, pagos recurrentes y generar reportes detallados para mejor toma de decisiones.",
+    tech: ["Python", "Database Management", "Financial System"],
+    githubUrl: "https://github.com/alejandrovazquezdev/CuotaFlow",
+    featured: false
+  },
+  {
+    id: 8,
     name: "Open Payments Tutorial",
     description: "Tutorial completo de implementación de cliente Node.js para la API de Open Payments. Guía paso a paso para integrar sistemas de pagos abiertos e interledger en aplicaciones web modernas.",
     tech: ["Node.js", "JavaScript", "Open Payments API", "Interledger Protocol"],
@@ -94,7 +102,7 @@ export const featuredProjects = [
     featured: false
   },
   {
-    id: 8,
+    id: 9,
     name: "Curso Python",
     description: "Material didáctico y ejercicios prácticos para aprendizaje de Python. Cubre desde fundamentos hasta conceptos avanzados con ejemplos prácticos y proyectos reales.",
     tech: ["Python", "Education", "Tutorial"],
@@ -102,7 +110,7 @@ export const featuredProjects = [
     featured: false
   },
   {
-    id: 9,
+    id: 10,
     name: "Isaac Flask Tutorial",
     description: "Tutorial Flask - Miniblog. Proyecto educativo que enseña desarrollo web con Flask a través de la construcción de un blog funcional con autenticación, CRUD y base de datos.",
     tech: ["Python", "Flask", "SQLite", "Jinja2", "Bootstrap"],
@@ -110,19 +118,11 @@ export const featuredProjects = [
     featured: false
   },
   {
-    id: 10,
+    id: 11,
     name: "Neovim Config",
     description: "Configuración personalizada de Neovim con LazyVim. Setup optimizado para desarrollo de software con plugins, keybindings y temas personalizados para máxima productividad.",
     tech: ["Lua", "Neovim", "LazyVim", "LSP", "Development Environment"],
     githubUrl: "https://github.com/alejandrovazquezdev/nvim-config",
-    featured: false
-  },
-  {
-    id: 11,
-    name: "Dreamhack",
-    description: "Proyecto de análisis y procesamiento de datos con Python. Implementa técnicas de data science y machine learning para resolver problemas complejos de análisis de información.",
-    tech: ["Python", "Data Science", "Machine Learning", "Analysis"],
-    githubUrl: "https://github.com/alejandrovazquezdev/Dreamhack",
     featured: false
   }
 ];
