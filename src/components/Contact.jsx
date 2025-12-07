@@ -1,6 +1,5 @@
 import React from 'react';
 import { personalInfo } from '../data/portfolio';
-import { Mail } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -11,14 +10,25 @@ const Contact = () => {
         <p style={{ 
           color: 'var(--text-secondary)', 
           fontSize: '1.1rem', 
-          marginBottom: '3rem',
+          marginBottom: '2rem',
           lineHeight: 1.8
         }}>
           Actualmente estoy abierto a nuevas oportunidades. Ya sea que tengas una pregunta o simplemente quieras saludar, haré todo lo posible por responderte.
         </p>
         
-        <a href={`mailto:${personalInfo.email}`} className="btn btn-outline" style={{ padding: '1rem 2rem', fontSize: '1.1rem' }}>
-          <Mail size={20} /> Enviar Correo
+        <a 
+          href={`mailto:${personalInfo.email}`}
+          style={{ 
+            color: 'var(--text-accent)',
+            fontSize: '1.25rem',
+            textDecoration: 'none',
+            fontWeight: '500',
+            transition: 'all 0.3s ease',
+            display: 'inline-block'
+          }}
+          className="hover:text-white"
+        >
+          alejandroisaacvazquezlopez@gmail.com
         </a>
       </div>
     </section>
