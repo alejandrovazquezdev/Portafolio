@@ -2,23 +2,23 @@
 
 Portafolio personal profesional construido con React + Vite.
 
-## 🚀 Tecnologías
+## Tecnologías
 
 - **React 18** - Biblioteca de JavaScript para interfaces de usuario
 - **Vite** - Build tool ultra rápido
 - **CSS3** - Estilos modernos y responsivos
 
-## ✨ Características
+## Características
 
-- ✅ Diseño responsive y profesional
-- ✅ Datos dinámicos desde archivo de configuración
-- ✅ Navegación suave entre secciones
-- ✅ Proyectos destacados de GitHub
-- ✅ Sistema de filtrado de proyectos por lenguaje
-- ✅ Información de contacto integrada
-- ✅ Optimizado para SEO
+- Diseño responsive y profesional
+- Datos dinámicos desde archivo de configuración
+- Navegación suave entre secciones
+- Proyectos destacados de GitHub
+- Sistema de filtrado de proyectos por lenguaje
+- Información de contacto integrada
+- Optimizado para SEO
 
-## 📂 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 portafolio/
@@ -41,7 +41,7 @@ portafolio/
 └── README.md
 ```
 
-## 🛠️ Instalación y Uso
+## Instalación y Uso
 
 ### Requisitos previos
 - Node.js (versión 16 o superior)
@@ -75,7 +75,7 @@ npm run build    # Genera la build de producción
 npm run preview  # Previsualiza la build de producción
 ```
 
-## 🎨 Personalización
+## Personalización
 
 Para personalizar el portafolio con tu información:
 
@@ -87,7 +87,7 @@ Para personalizar el portafolio con tu información:
    - `education` - Formación académica
    - `experience` - Experiencia laboral
 
-## 🌐 Despliegue
+## Despliegue
 
 ### Vercel (Recomendado)
 ```bash
@@ -123,13 +123,13 @@ npm install --save-dev gh-pages
 npm run deploy
 ```
 
-## 📧 Contacto
+## Contacto
 
 - **Email**: alejandroisaacvazquezlopez@gmail.com
 - **LinkedIn**: [www.linkedin.com/in/alejandro-vazquez-dev](https://www.linkedin.com/in/alejandro-vazquez-dev)
 - **GitHub**: [@alejandrovazquezdev](https://github.com/alejandrovazquezdev)
 
-## 📝 Licencia
+## Licencia
 
 Este proyecto está bajo la Licencia MIT.
 
