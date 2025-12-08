@@ -9,33 +9,18 @@ const Skills = () => {
         
         <div className="grid grid-3">
           {skills.map((skillGroup, index) => (
-            <div key={index}>
-              <h3 style={{ 
-                fontSize: '1.1rem', 
-                marginBottom: '1.5rem', 
-                color: 'var(--text-primary)',
-                borderBottom: '1px solid var(--border-color)',
-                paddingBottom: '0.5rem',
-                display: 'inline-block'
-              }}>
-                {skillGroup.category}
-              </h3>
-              
-              <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <div key={index} className="card skill-card" style={{ display: 'grid', gap: '1rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <h3 style={{ fontSize: '1.1rem', color: 'var(--text-primary)' }}>
+                  {skillGroup.category}
+                </h3>
+                <span className="project-pill">Core</span>
+              </div>
+              <div className="sparkline" aria-hidden />
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
                 {skillGroup.items.map((item, i) => (
-                  <li key={i} style={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    gap: '0.75rem',
-                    color: 'var(--text-secondary)',
-                    fontSize: '1rem'
-                  }}>
-                    <span style={{ 
-                      width: '4px', 
-                      height: '4px', 
-                      background: 'var(--text-accent)', 
-                      borderRadius: '50%' 
-                    }}></span>
+                  <li key={i} className="text-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                    <span style={{ width: '8px', height: '8px', background: 'var(--text-accent)', borderRadius: '50%' }} />
                     {item}
                   </li>
                 ))}

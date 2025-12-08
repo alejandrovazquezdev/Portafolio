@@ -33,7 +33,7 @@ export const currentActivity = {
   platform: "Kaggle",
   url: "https://www.kaggle.com/competitions/gemini-3/overview",
   startDate: "2025-12",
-  badge: "🏆"
+  badge: ""
 };
 
 export const featuredProjects = [

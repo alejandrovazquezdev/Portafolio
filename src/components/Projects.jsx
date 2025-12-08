@@ -20,33 +20,12 @@ const Projects = () => {
           {displayedProjects.map((project) => (
             <div 
               key={project.id}
-              className="card"
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                height: '100%',
-                position: 'relative',
-                overflow: 'hidden'
-              }}
+              className="card project-card"
+              style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', position: 'relative' }}
             >
               <div>
-                <div style={{ 
-                  display: 'flex', 
-                  justifyContent: 'space-between', 
-                  alignItems: 'flex-start', 
-                  marginBottom: '1.5rem' 
-                }}>
-                  <div className="mono" style={{ 
-                    fontSize: '0.8rem', 
-                    color: 'var(--text-accent)',
-                    border: '1px solid rgba(59, 130, 246, 0.2)',
-                    padding: '0.25rem 0.75rem',
-                    borderRadius: '100px'
-                  }}>
-                    {project.tech[0]}
-                  </div>
-                  
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
+                  <div className="project-pill mono">{project.tech[0]}</div>
                   <div style={{ display: 'flex', gap: '0.75rem' }}>
                     {project.githubUrl && (
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-white">
@@ -61,33 +40,18 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <h3 style={{ fontSize: '1.75rem', marginBottom: '1rem' }}>
+                <h3 style={{ fontSize: '1.6rem', marginBottom: '0.75rem' }}>
                   {project.name}
                 </h3>
 
-                <p style={{ 
-                  color: 'var(--text-secondary)', 
-                  marginBottom: '2rem',
-                  fontSize: '1rem',
-                  lineHeight: '1.6'
-                }}>
+                <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '1rem', lineHeight: '1.6' }}>
                   {project.description}
                 </p>
               </div>
 
-              <div style={{ 
-                display: 'flex', 
-                flexWrap: 'wrap', 
-                gap: '0.75rem',
-                marginTop: 'auto'
-              }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginTop: 'auto' }}>
                 {project.tech.slice(1).map((tech, i) => (
-                  <span key={i} className="mono" style={{ 
-                    fontSize: '0.8rem', 
-                    color: 'var(--text-secondary)' 
-                  }}>
-                    #{tech}
-                  </span>
+                  <span key={i} className="tag">#{tech}</span>
                 ))}
               </div>
             </div>
@@ -107,6 +71,7 @@ const Projects = () => {
               fontWeight: '600'
             }}
           >
+            <span className="shine" aria-hidden />
             {showAll ? '← Mostrar Menos Proyectos' : `Ver Todos los Proyectos (${featuredProjects.length}) →`}
           </button>
         </div>

@@ -21,92 +21,56 @@ const Header = () => {
   ];
 
   return (
-    <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#0f172a]/90 backdrop-blur-sm border-b border-[#334155]' : 'bg-transparent'
-      }`}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        backgroundColor: isScrolled ? 'rgba(15, 23, 42, 0.9)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(8px)' : 'none',
-        borderBottom: isScrolled ? '1px solid var(--border-color)' : 'none',
-        height: 'var(--header-height)',
-        display: 'flex',
-        alignItems: 'center'
-      }}
-    >
-      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-        <a href="#" className="mono text-accent" style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
-          &lt;AV /&gt;
+    <header className={`site-header ${isScrolled ? 'is-scrolled' : ''}`}>
+      <div className="container">
+        <a href="#" className="logo-mark">
+          <span className="text-accent">&lt;AV</span>/&gt;
         </a>
 
-        {/* Desktop Nav */}
-        <nav className="desktop-nav" style={{ display: 'none' }}>
-          <ul style={{ display: 'flex', gap: '2rem' }}>
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <a 
-                  href={link.href} 
-                  className="mono"
-                  style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}
-                  onMouseOver={(e) => e.target.style.color = 'var(--text-accent)'}
-                  onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}
-                >
-                  <span className="text-accent">#</span>{link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+        <nav className="nav-links" aria-label="Navegación principal">
+          {navLinks.map((link) => (
+            <a key={link.name} href={link.href} className="mono">
+              <span className="text-accent">#</span>{link.name}
+            </a>
+          ))}
+          <span className="pill mono">Disponible • Remoto</span>
         </nav>
 
-        {/* Mobile Menu Toggle */}
         <button 
-          className="mobile-toggle"
+          className="mobile-toggle" 
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          style={{ color: 'var(--text-primary)' }}
+          aria-label="Abrir menú"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-
-        {/* Mobile Nav Overlay */}
-        {isMenuOpen && (
-          <div style={{
-            position: 'absolute',
-            top: 'var(--header-height)',
-            left: 0,
-            right: 0,
-            backgroundColor: 'var(--bg-secondary)',
-            padding: '2rem',
-            borderBottom: '1px solid var(--border-color)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1.5rem'
-          }}>
-            {navLinks.map((link) => (
-              <a 
-                key={link.name}
-                href={link.href}
-                className="mono"
-                onClick={() => setIsMenuOpen(false)}
-                style={{ fontSize: '1.1rem', color: 'var(--text-primary)' }}
-              >
-                <span className="text-accent">#</span> {link.name}
-              </a>
-            ))}
-          </div>
-        )}
       </div>
-      
-      <style>{`
-        @media (min-width: 768px) {
-          .desktop-nav { display: block !important; }
-          .mobile-toggle { display: none !important; }
-        }
-      `}</style>
+
+      {isMenuOpen && (
+        <div className="mobile-panel">
+          {navLinks.map((link) => (
+            <a 
+              key={link.name}
+              href={link.href}
+              className="mono"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span className="text-accent">#</span> {link.name}
+            </a>
+          ))}
+          <span className="pill mono">Disponible • Remoto</span>
+          <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem' }}>
+            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <Github size={20} />
+            </a>
+            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <Linkedin size={20} />
+            </a>
+            <a href={`mailto:${personalInfo.email}`} aria-label="Email">
+              <Mail size={20} />
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

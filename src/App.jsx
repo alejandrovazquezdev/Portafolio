@@ -8,7 +8,12 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App page-shell">
+      <div className="bg-aurora" aria-hidden />
+      <div className="bg-grid" aria-hidden />
+      <div className="bg-orb orb-1" aria-hidden />
+      <div className="bg-orb orb-2" aria-hidden />
+      <div className="bg-noise" aria-hidden />
       <Header />
       <main>
         <Hero />
